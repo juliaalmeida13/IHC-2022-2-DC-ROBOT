@@ -21,6 +21,14 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "551ee9dc-8aaf-4387-9f4d-ca987a51f4d2"
+      }
+    },
+    "android": {
+      "package": "com.sarao3o.withNavigation"
     }
   }
 }
