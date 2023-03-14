@@ -6,7 +6,7 @@ import * as ScreenOrientation from 'expo-screen-orientation';
 export default function App() {
   useEffect(() => {
     async function lockScreenOrientation() {
-      await ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.PORTRAIT);
+      await ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.LANDSCAPE);
     }
     lockScreenOrientation();
   }, []);
