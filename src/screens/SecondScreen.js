@@ -46,16 +46,25 @@ export default function ({ navigation }) {
       />
 
       <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-        <Text fontWeight="bold" style={{ marginBottom: 20, marginBottom: 10,
-                                                                       position: 'absolute',
-                                                                       bottom: 620,
-                                                                       right: 500 }}>
+        <Text 
+          style={{
+            fontFamily: "Lato",
+            fontSize: 30,
+            fontWeight: "bold",
+            position: "absolute",
+            textAlign: "center",
+            bottom: 790,
+            marginTop: 20,
+            marginBottom: 10,
+            color: isDarkmode ? '#D9D9D9' : '#464444'
+          }}
+        > 
           Escolha o lugar em que gostaria de ir
         </Text>
 
         <TouchableOpacity
           style={{
-            backgroundColor: "#2EC4B6",
+            backgroundColor: isDarkmode ? '#9C86B8' : '#A0BDC6',
             borderRadius: 20,
             paddingVertical: 15,
             paddingHorizontal: 20,
@@ -66,14 +75,14 @@ export default function ({ navigation }) {
           }}
           onPress={() => chamadaAPI("LE-1")}
         >
-          <Text style={{ color: "white", fontWeight: "bold" }}>
+          <Text style={{ color: isDarkmode ? '#D9D9D9' : '#464444', fontWeight: "bold" }}>
             LE-1
           </Text>
         </TouchableOpacity>
 
         <TouchableOpacity
           style={{
-            backgroundColor: "#2EC4B6",
+            backgroundColor: isDarkmode ? '#9C86B8' : '#A0BDC6',
             borderRadius: 20,
             paddingVertical: 15,
             paddingHorizontal: 20,
@@ -84,14 +93,14 @@ export default function ({ navigation }) {
           }}
           onPress={() => chamadaAPI("LE-2")}
         >
-          <Text style={{ color: "white", fontWeight: "bold" }}>
+          <Text style={{ color: isDarkmode ? '#D9D9D9' : '#464444', fontWeight: "bold" }}>
           LE-2
           </Text>
         </TouchableOpacity>
 
         <TouchableOpacity
           style={{
-            backgroundColor: "#2EC4B6",
+            backgroundColor: isDarkmode ? '#9C86B8' : '#A0BDC6',
             borderRadius: 20,
             paddingVertical: 15,
             paddingHorizontal: 20,
@@ -102,14 +111,14 @@ export default function ({ navigation }) {
           }}
           onPress={() => chamadaAPI("LE-3")}
         >
-          <Text style={{ color: "white", fontWeight: "bold" }}>
+          <Text style={{ color: isDarkmode ? '#D9D9D9' : '#464444', fontWeight: "bold" }}>
           LE-3
           </Text>
         </TouchableOpacity>
 
         <TouchableOpacity
           style={{
-            backgroundColor: "#2EC4B6",
+            backgroundColor: isDarkmode ? '#9C86B8' : '#A0BDC6',
             borderRadius: 20,
             paddingVertical: 15,
             paddingHorizontal: 20,
@@ -119,14 +128,14 @@ export default function ({ navigation }) {
           }}
           onPress={() => chamadaAPI("LE-4")}
         >
-          <Text style={{ color: "white", fontWeight: "bold" }}>
+          <Text style={{ color: isDarkmode ? '#D9D9D9' : '#464444', fontWeight: "bold" }}>
           LE-4
           </Text>
         </TouchableOpacity>
 
         <TouchableOpacity
                   style={{
-                    backgroundColor: "#2EC4B6",
+                    backgroundColor: isDarkmode ? '#9C86B8' : '#A0BDC6',
                     borderRadius: 20,
                     paddingVertical: 15,
                     paddingHorizontal: 20,
@@ -136,14 +145,14 @@ export default function ({ navigation }) {
                   }}
                   onPress={() => chamadaAPI("Suporte")}
                 >
-                  <Text style={{ color: "white", fontWeight: "bold" }}>
+                  <Text style={{ color: isDarkmode ? '#D9D9D9' : '#464444', fontWeight: "bold" }}>
                   Suporte
                   </Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity
                           style={{
-                            backgroundColor: "#2EC4B6",
+                            backgroundColor: isDarkmode ? '#9C86B8' : '#A0BDC6',
                             borderRadius: 20,
                             paddingVertical: 15,
                             paddingHorizontal: 20,
@@ -153,14 +162,14 @@ export default function ({ navigation }) {
                           }}
                           onPress={() => chamadaAPI("PPG-CC4")}
                         >
-                          <Text style={{ color: "white", fontWeight: "bold" }}>
+                          <Text style={{ color: isDarkmode ? '#D9D9D9' : '#464444', fontWeight: "bold" }}>
                           PPG-CC4
                           </Text>
                         </TouchableOpacity>
 
                 <TouchableOpacity
                           style={{
-                            backgroundColor: "#2EC4B6",
+                            backgroundColor: isDarkmode ? '#9C86B8' : '#A0BDC6',
                             borderRadius: 20,
                             paddingVertical: 15,
                             paddingHorizontal: 20,
@@ -170,14 +179,14 @@ export default function ({ navigation }) {
                           }}
                           onPress={() => chamadaAPI("Maker")}
                         >
-                          <Text style={{ color: "white", fontWeight: "bold" }}>
+                          <Text style={{ color: isDarkmode ? '#D9D9D9' : '#464444', fontWeight: "bold" }}>
                           Maker
                           </Text>
                         </TouchableOpacity>
 
         <TouchableOpacity
                                   style={{
-                                    backgroundColor: "#2EC4B6",
+                                    backgroundColor: isDarkmode ? '#9C86B8' : '#A0BDC6',
                                     borderRadius: 20,
                                     paddingVertical: 15,
                                     paddingHorizontal: 20,
@@ -187,14 +196,14 @@ export default function ({ navigation }) {
                                   }}
                                   onPress={() => chamadaAPI("LE-5")}
                                 >
-                                  <Text style={{ color: "white", fontWeight: "bold" }}>
+                                  <Text style={{ color: isDarkmode ? '#D9D9D9' : '#464444', fontWeight: "bold" }}>
                                   LE-6
                                   </Text>
                                 </TouchableOpacity>
 
          <TouchableOpacity
                                            style={{
-                                             backgroundColor: "#2EC4B6",
+                                             backgroundColor: isDarkmode ? '#9C86B8' : '#A0BDC6',
                                              borderRadius: 20,
                                              paddingVertical: 15,
                                              paddingHorizontal: 20,
@@ -204,14 +213,14 @@ export default function ({ navigation }) {
                                            }}
                                            onPress={() => chamadaAPI("Auditorio")}
                                          >
-                                           <Text style={{ color: "white", fontWeight: "bold" }}>
+                                           <Text style={{ color: isDarkmode ? '#D9D9D9' : '#464444', fontWeight: "bold" }}>
                                            Auditorio
                                            </Text>
                                          </TouchableOpacity>
 
          <TouchableOpacity
                                                     style={{
-                                                      backgroundColor: "#2EC4B6",
+                                                      backgroundColor: isDarkmode ? '#9C86B8' : '#A0BDC6',
                                                       borderRadius: 20,
                                                       paddingVertical: 15,
                                                       paddingHorizontal: 20,
@@ -221,14 +230,14 @@ export default function ({ navigation }) {
                                                     }}
                                                     onPress={() => chamadaAPI("Banheiros")}
                                                   >
-                                                    <Text style={{ color: "white", fontWeight: "bold" }}>
+                                                    <Text style={{ color: isDarkmode ? '#D9D9D9' : '#464444', fontWeight: "bold" }}>
                                                     Banheiros
                                                     </Text>
                                                   </TouchableOpacity>
 
          <TouchableOpacity
                                    style={{
-                                     backgroundColor: "#2EC4B6",
+                                     backgroundColor: isDarkmode ? '#9C86B8' : '#A0BDC6',
                                      borderRadius: 20,
                                      paddingVertical: 15,
                                      paddingHorizontal: 20,
@@ -238,14 +247,14 @@ export default function ({ navigation }) {
                                    }}
                                    onPress={() => chamadaAPI("Copa")}
                                  >
-                                   <Text style={{ color: "white", fontWeight: "bold" }}>
+                                   <Text style={{ color: isDarkmode ? '#D9D9D9' : '#464444', fontWeight: "bold" }}>
                                    Copa
                                    </Text>
                                  </TouchableOpacity>
 
         <TouchableOpacity
                                   style={{
-                                    backgroundColor: "#2EC4B6",
+                                    backgroundColor: isDarkmode ? '#9C86B8' : '#A0BDC6',
                                     borderRadius: 20,
                                     paddingVertical: 15,
                                     paddingHorizontal: 20,
@@ -255,14 +264,14 @@ export default function ({ navigation }) {
                                   }}
                                   onPress={() => chamadaAPI("Lig")}
                                 >
-                                  <Text style={{ color: "white", fontWeight: "bold" }}>
+                                  <Text style={{ color: isDarkmode ? '#D9D9D9' : '#464444', fontWeight: "bold" }}>
                                   Lig
                                   </Text>
                                 </TouchableOpacity>
 
         <TouchableOpacity
                                           style={{
-                                            backgroundColor: "#2EC4B6",
+                                            backgroundColor: isDarkmode ? '#9C86B8' : '#A0BDC6',
                                             borderRadius: 20,
                                             paddingVertical: 15,
                                             paddingHorizontal: 20,
@@ -272,14 +281,14 @@ export default function ({ navigation }) {
                                           }}
                                           onPress={() => chamadaAPI("Reunioes")}
                                         >
-                                          <Text style={{ color: "white", fontWeight: "bold" }}>
+                                          <Text style={{ color: isDarkmode ? '#D9D9D9' : '#464444', fontWeight: "bold" }}>
                                           Reunioes
                                           </Text>
                                         </TouchableOpacity>
 
        <TouchableOpacity
                                          style={{
-                                           backgroundColor: "#2EC4B6",
+                                           backgroundColor: isDarkmode ? '#9C86B8' : '#A0BDC6',
                                            borderRadius: 20,
                                            paddingVertical: 15,
                                            paddingHorizontal: 20,
@@ -289,14 +298,14 @@ export default function ({ navigation }) {
                                          }}
                                          onPress={() => chamadaAPI("Chefia")}
                                        >
-                                         <Text style={{ color: "white", fontWeight: "bold" }}>
+                                         <Text style={{ color: isDarkmode ? '#D9D9D9' : '#464444', fontWeight: "bold" }}>
                                          Chefia
                                          </Text>
                                        </TouchableOpacity>
 
        <TouchableOpacity
                                          style={{
-                                           backgroundColor: "#2EC4B6",
+                                           backgroundColor: isDarkmode ? '#9C86B8' : '#A0BDC6',
                                            borderRadius: 20,
                                            paddingVertical: 15,
                                            paddingHorizontal: 20,
@@ -306,14 +315,14 @@ export default function ({ navigation }) {
                                          }}
                                          onPress={() => chamadaAPI("Recepcao")}
                                        >
-                                         <Text style={{ color: "white", fontWeight: "bold" }}>
+                                         <Text style={{ color: isDarkmode ? '#D9D9D9' : '#464444', fontWeight: "bold" }}>
                                          Recepcao
                                          </Text>
                                        </TouchableOpacity>
 
       <TouchableOpacity
                                         style={{
-                                          backgroundColor: "#2EC4B6",
+                                          backgroundColor: isDarkmode ? '#9C86B8' : '#A0BDC6',
                                           borderRadius: 20,
                                           paddingVertical: 15,
                                           paddingHorizontal: 20,
@@ -323,7 +332,7 @@ export default function ({ navigation }) {
                                         }}
                                         onPress={() => chamadaAPI("Graduacao")}
                                       >
-                                        <Text style={{ color: "white", fontWeight: "bold" }}>
+                                        <Text style={{ color: isDarkmode ? '#D9D9D9' : '#464444', fontWeight: "bold" }}>
                                         Graduacao
                                         </Text>
                                       </TouchableOpacity>
