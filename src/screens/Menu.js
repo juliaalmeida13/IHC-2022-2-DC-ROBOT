@@ -1,5 +1,5 @@
 import React from "react";
-import { View, TouchableOpacity } from "react-native";
+import { View, TouchableOpacity, StyleSheet} from "react-native";
 import {
   Layout,
   TopNav,
@@ -8,10 +8,10 @@ import {
   useTheme,
 } from "react-native-rapi-ui";
 import { Ionicons } from "@expo/vector-icons";
+import mapa from "../../assets/mapa.png";
 
 export default function ({ navigation }) {
   const { isDarkmode, setTheme } = useTheme();
-
 
 
   return (
@@ -42,46 +42,84 @@ export default function ({ navigation }) {
         }}
       />
 
-      <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-        <Text fontWeight="bold" style={{ marginBottom: 20 }}>
-          Selecione a funcionalidade
+  <View style={{alignItems: "center", justifyContent: "center"}}>
+        <Text 
+          style={{
+            fontFamily: "Lato",
+            fontSize: 30,
+            fontWeight: "bold",
+            textAlign: "center",
+            marginTop: 30,
+            marginBottom: 20,
+            color: isDarkmode ? '#D9D9D9' : '#464444'
+          }}
+        > 
+          Bem vinde ao Departamento de Computação da UFSCar!
         </Text>
+      </View>
 
+      <View style={{alignItems: "center", justifyContent: "center"}}>
+        <Text 
+          style={{
+            fontFamily: "Lato",
+            fontSize: 30,
+            fontWeight: "bold",
+            textAlign: "center",
+            marginTop: 20,
+            marginBottom: 10,
+            color: isDarkmode ? '#D9D9D9' : '#464444'
+          }}
+        > 
+          Selecione a opção desejada
+        </Text>
+      </View>
+
+      <View style={{flexDirection: "row", flexWrap: 'wrap' }}>
         <TouchableOpacity
           style={{
-            backgroundColor: "#2EC4B6",
-            borderRadius: 20,
-            paddingVertical: 15,
-            paddingHorizontal: 20,
-            marginBottom: 10,
+            flex:1,
+            backgroundColor: isDarkmode ? '#9C86B8' : '#A0BDC6',
+            paddingHorizontal: 50,
+            paddingVertical: 50,
+            borderRadius: 10,
+            alignSelf: 'flex-start',
+            marginHorizontal: '1%',
+            marginTop: 20,
+            margin: 10,
+            minWidth: '48%',
+            textAlign: 'center',
           }}
           onPress={() => {
             navigation.navigate("SecondScreen");
           }}
         >
-          <Text style={{ color: "white", fontWeight: "bold" }}>
+          <Text style={{ color: isDarkmode ? '#D9D9D9' : '#464444', fontWeight: "bold" }}>
             Mapa do DC
           </Text>
         </TouchableOpacity>
 
         <TouchableOpacity
           style={{
-            backgroundColor: "#2EC4B6",
-            borderRadius: 20,
-            paddingVertical: 15,
-            paddingHorizontal: 20,
-            marginBottom: 10,
+            flex:2,
+            backgroundColor: isDarkmode ? '#9C86B8' : '#A0BDC6',
+            paddingHorizontal: 50,
+            paddingVertical: 50,
+            borderRadius: 10,
+            alignSelf: 'flex-start',
+            marginHorizontal: '1%',
+            marginTop: 20,
+            margin: 10,
+            minWidth: '48%',
+            textAlign: 'center',
           }}
           onPress={() => {
-            navigation.navigate("professores");
+            navigation.navigate("Professores");
           }}
         >
-          <Text style={{ color: "white", fontWeight: "bold" }}>
+          <Text style={{ color: isDarkmode ? '#D9D9D9' : '#464444', fontWeight: "bold" }}>
           Professores
           </Text>
         </TouchableOpacity>
-
-        
       </View>
     </Layout>
   );
