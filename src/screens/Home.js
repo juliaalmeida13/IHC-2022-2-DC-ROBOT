@@ -12,7 +12,8 @@ import {
   themeColor,
 } from "react-native-rapi-ui";
 import { Ionicons } from "@expo/vector-icons";
-import minhaImagem from "../../assets/Chat-bot-pana.png";
+import minhaImagem from "../../assets/Chat-bot-pana-light-mode.png";
+import minhaImagemEscura from "../../assets/Chat-bot-pana-dark-mode.png";
 
 export default function ({ navigation }) {
   const { isDarkmode, setTheme } = useTheme();
@@ -49,15 +50,14 @@ export default function ({ navigation }) {
           Bem vinde ao Departamento de Computação da UFSCar!
         </Text>
 
-        <Image source={minhaImagem} style={{ width: 350, height: 350 }} />
+        <Image source={isDarkmode ? minhaImagemEscura : minhaImagem} style={{ width: 600, height: 600}} />
 
         <Section style={{ position: "absolute", bottom: 10 }}>
           <SectionContent>
             <Text fontWeight="bold" style={{ textAlign: "center" }}>
-              bla bla bla
             </Text>
             <Button
-              text="Iniciar"
+              text="Toque aqui para iniciar"
               onPress={() => {
                 navigation.navigate("SecondScreen");
               }}
