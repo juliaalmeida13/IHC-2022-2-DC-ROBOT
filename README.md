@@ -1,10 +1,8 @@
-# Template Blank with navigation
-projeto de ihc
-Template starter with React Navigation
+# Robo Host do DC
+Projeto da Disciplina de Interação Humano Computador para o desenvolvimento de uma interface para um robo host do Departamento de Computação - UFSCar. 
 
-# Preview
-
-![../media/withnav.gif](../media/withnav.gif)
+# Build do aplicativo
+Para testar o aplicativo android em um tablet ou celular, é só baixar o [RoboApp.apk](link) e instalar.
 
 # Installation
 
