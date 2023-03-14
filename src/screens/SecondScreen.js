@@ -20,7 +20,7 @@ export default function ({ navigation }) {
   return (
     <Layout>
       <TopNav
-        middleContent="Robô do DC"
+        middleContent="Mapa do DC"
         leftContent={
           <Ionicons
             name="chevron-back"
@@ -46,7 +46,10 @@ export default function ({ navigation }) {
       />
 
       <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-        <Text fontWeight="bold" style={{ marginBottom: 20 }}>
+        <Text fontWeight="bold" style={{ marginBottom: 20, marginBottom: 10,
+                                                                       position: 'absolute',
+                                                                       bottom: 620,
+                                                                       right: 500 }}>
           Escolha o lugar em que gostaria de ir
         </Text>
 
@@ -57,6 +60,9 @@ export default function ({ navigation }) {
             paddingVertical: 15,
             paddingHorizontal: 20,
             marginBottom: 10,
+            position: 'absolute',
+            bottom: 100,
+            right: 770
           }}
           onPress={() => chamadaAPI("LE-1")}
         >
@@ -72,6 +78,9 @@ export default function ({ navigation }) {
             paddingVertical: 15,
             paddingHorizontal: 20,
             marginBottom: 10,
+             position: 'absolute',
+                        bottom: 160,
+                        right: 770
           }}
           onPress={() => chamadaAPI("LE-2")}
         >
@@ -87,6 +96,9 @@ export default function ({ navigation }) {
             paddingVertical: 15,
             paddingHorizontal: 20,
             marginBottom: 10,
+            position: 'absolute',
+            bottom: 220,
+            right: 770
           }}
           onPress={() => chamadaAPI("LE-3")}
         >
@@ -101,6 +113,9 @@ export default function ({ navigation }) {
             borderRadius: 20,
             paddingVertical: 15,
             paddingHorizontal: 20,
+            position: 'absolute',
+            bottom: 290,
+            right: 770
           }}
           onPress={() => chamadaAPI("LE-4")}
         >
@@ -108,6 +123,213 @@ export default function ({ navigation }) {
           LE-4
           </Text>
         </TouchableOpacity>
+
+        <TouchableOpacity
+                  style={{
+                    backgroundColor: "#2EC4B6",
+                    borderRadius: 20,
+                    paddingVertical: 15,
+                    paddingHorizontal: 20,
+                    position: 'absolute',
+                    bottom: 290,
+                    right: 770
+                  }}
+                  onPress={() => chamadaAPI("Suporte")}
+                >
+                  <Text style={{ color: "white", fontWeight: "bold" }}>
+                  Suporte
+                  </Text>
+                </TouchableOpacity>
+
+                <TouchableOpacity
+                          style={{
+                            backgroundColor: "#2EC4B6",
+                            borderRadius: 20,
+                            paddingVertical: 15,
+                            paddingHorizontal: 20,
+                            position: 'absolute',
+                            bottom: 350,
+                            right: 770
+                          }}
+                          onPress={() => chamadaAPI("PPG-CC4")}
+                        >
+                          <Text style={{ color: "white", fontWeight: "bold" }}>
+                          PPG-CC4
+                          </Text>
+                        </TouchableOpacity>
+
+                <TouchableOpacity
+                          style={{
+                            backgroundColor: "#2EC4B6",
+                            borderRadius: 20,
+                            paddingVertical: 15,
+                            paddingHorizontal: 20,
+                            position: 'absolute',
+                            bottom: 410,
+                            right: 770
+                          }}
+                          onPress={() => chamadaAPI("Maker")}
+                        >
+                          <Text style={{ color: "white", fontWeight: "bold" }}>
+                          Maker
+                          </Text>
+                        </TouchableOpacity>
+
+        <TouchableOpacity
+                                  style={{
+                                    backgroundColor: "#2EC4B6",
+                                    borderRadius: 20,
+                                    paddingVertical: 15,
+                                    paddingHorizontal: 20,
+                                    position: 'absolute',
+                                    bottom: 470,
+                                    right: 770
+                                  }}
+                                  onPress={() => chamadaAPI("LE-5")}
+                                >
+                                  <Text style={{ color: "white", fontWeight: "bold" }}>
+                                  LE-6
+                                  </Text>
+                                </TouchableOpacity>
+
+         <TouchableOpacity
+                                           style={{
+                                             backgroundColor: "#2EC4B6",
+                                             borderRadius: 20,
+                                             paddingVertical: 15,
+                                             paddingHorizontal: 20,
+                                             position: 'absolute',
+                                             bottom: 530,
+                                             right: 770
+                                           }}
+                                           onPress={() => chamadaAPI("Auditorio")}
+                                         >
+                                           <Text style={{ color: "white", fontWeight: "bold" }}>
+                                           Auditorio
+                                           </Text>
+                                         </TouchableOpacity>
+
+         <TouchableOpacity
+                                                    style={{
+                                                      backgroundColor: "#2EC4B6",
+                                                      borderRadius: 20,
+                                                      paddingVertical: 15,
+                                                      paddingHorizontal: 20,
+                                                      position: 'absolute',
+                                                      bottom: 110,
+                                                      right: 630
+                                                    }}
+                                                    onPress={() => chamadaAPI("Banheiros")}
+                                                  >
+                                                    <Text style={{ color: "white", fontWeight: "bold" }}>
+                                                    Banheiros
+                                                    </Text>
+                                                  </TouchableOpacity>
+
+         <TouchableOpacity
+                                   style={{
+                                     backgroundColor: "#2EC4B6",
+                                     borderRadius: 20,
+                                     paddingVertical: 15,
+                                     paddingHorizontal: 20,
+                                     position: 'absolute',
+                                     bottom: 110,
+                                     right: 540
+                                   }}
+                                   onPress={() => chamadaAPI("Copa")}
+                                 >
+                                   <Text style={{ color: "white", fontWeight: "bold" }}>
+                                   Copa
+                                   </Text>
+                                 </TouchableOpacity>
+
+        <TouchableOpacity
+                                  style={{
+                                    backgroundColor: "#2EC4B6",
+                                    borderRadius: 20,
+                                    paddingVertical: 15,
+                                    paddingHorizontal: 20,
+                                    position: 'absolute',
+                                    bottom: 110,
+                                    right: 470
+                                  }}
+                                  onPress={() => chamadaAPI("Lig")}
+                                >
+                                  <Text style={{ color: "white", fontWeight: "bold" }}>
+                                  Lig
+                                  </Text>
+                                </TouchableOpacity>
+
+        <TouchableOpacity
+                                          style={{
+                                            backgroundColor: "#2EC4B6",
+                                            borderRadius: 20,
+                                            paddingVertical: 15,
+                                            paddingHorizontal: 20,
+                                            position: 'absolute',
+                                            bottom: 250,
+                                            right: 470
+                                          }}
+                                          onPress={() => chamadaAPI("Reunioes")}
+                                        >
+                                          <Text style={{ color: "white", fontWeight: "bold" }}>
+                                          Reunioes
+                                          </Text>
+                                        </TouchableOpacity>
+
+       <TouchableOpacity
+                                         style={{
+                                           backgroundColor: "#2EC4B6",
+                                           borderRadius: 20,
+                                           paddingVertical: 15,
+                                           paddingHorizontal: 20,
+                                           position: 'absolute',
+                                           bottom: 350,
+                                           right: 470
+                                         }}
+                                         onPress={() => chamadaAPI("Chefia")}
+                                       >
+                                         <Text style={{ color: "white", fontWeight: "bold" }}>
+                                         Chefia
+                                         </Text>
+                                       </TouchableOpacity>
+
+       <TouchableOpacity
+                                         style={{
+                                           backgroundColor: "#2EC4B6",
+                                           borderRadius: 20,
+                                           paddingVertical: 15,
+                                           paddingHorizontal: 20,
+                                           position: 'absolute',
+                                           bottom: 350,
+                                           right: 330
+                                         }}
+                                         onPress={() => chamadaAPI("Recepcao")}
+                                       >
+                                         <Text style={{ color: "white", fontWeight: "bold" }}>
+                                         Recepcao
+                                         </Text>
+                                       </TouchableOpacity>
+
+      <TouchableOpacity
+                                        style={{
+                                          backgroundColor: "#2EC4B6",
+                                          borderRadius: 20,
+                                          paddingVertical: 15,
+                                          paddingHorizontal: 20,
+                                          position: 'absolute',
+                                          bottom: 250,
+                                          right: 330
+                                        }}
+                                        onPress={() => chamadaAPI("Graduacao")}
+                                      >
+                                        <Text style={{ color: "white", fontWeight: "bold" }}>
+                                        Graduacao
+                                        </Text>
+                                      </TouchableOpacity>
+
+
+
       </View>
     </Layout>
   );

@@ -20,7 +20,7 @@ export default function ({ navigation }) {
   return (
     <Layout>
       <TopNav
-        middleContent="Professores"
+        middleContent="Professores1"
         leftContent={
           <Ionicons
             name="chevron-back"
