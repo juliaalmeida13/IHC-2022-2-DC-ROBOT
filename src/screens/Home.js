@@ -59,7 +59,7 @@ export default function ({ navigation }) {
             <Button
               text="Toque aqui para iniciar"
               onPress={() => {
-                navigation.navigate("SecondScreen");
+                navigation.navigate("Menu");
               }}
               style={{
                 marginTop: 10,

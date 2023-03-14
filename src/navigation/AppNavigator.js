@@ -4,6 +4,8 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import Home from "../screens/Home";
 import SecondScreen from "../screens/SecondScreen";
+import Menu from "../screens/Menu";
+import professores from "../screens/Professores";
 
 const MainStack = createNativeStackNavigator();
 
@@ -16,6 +18,9 @@ const Main = () => {
     >
       <MainStack.Screen name="Home" component={Home} />
       <MainStack.Screen name="SecondScreen" component={SecondScreen} />
+      <MainStack.Screen name="Menu" component={Menu} />
+      <MainStack.Screen name="professores" component={professores} />
+
     </MainStack.Navigator>
   );
 };
