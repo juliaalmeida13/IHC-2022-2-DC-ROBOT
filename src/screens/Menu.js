@@ -8,7 +8,7 @@ import {
   useTheme,
 } from "react-native-rapi-ui";
 import { Ionicons } from "@expo/vector-icons";
-import mapa from "../../assets/mapa.png";
+//import mapa from "../../assets/mapa.png";
 
 export default function ({ navigation }) {
   const { isDarkmode, setTheme } = useTheme();
