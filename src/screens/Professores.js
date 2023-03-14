@@ -20,7 +20,7 @@ export default function ({ navigation }) {
   return (
     <Layout>
       <TopNav
-        middleContent="Professores1"
+        middleContent="Lista de Professores"
         leftContent={
           <Ionicons
             name="chevron-back"
@@ -45,67 +45,40 @@ export default function ({ navigation }) {
         }}
       />
 
-      <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-        <Text fontWeight="bold" style={{ marginBottom: 20 }}>
-          Escolha o lugar em que gostaria de ir
+      <View style={{ alignItems: "center", justifyContent: "center" }}>
+      <Text 
+          style={{
+            fontFamily: "Lato",
+            fontSize: 30,
+            fontWeight: "bold",
+            textAlign: "center",
+            marginBottom: 20,
+            marginTop: 30,
+            color: isDarkmode ? '#D9D9D9' : '#464444'
+          }}>
+          Lista de Professores no DC
         </Text>
-
+      </View>
+      <View style={{flexDirection: "row", flexWrap: 'wrap'}}>
         <TouchableOpacity
           style={{
-            backgroundColor: "#2EC4B6",
-            borderRadius: 20,
-            paddingVertical: 15,
-            paddingHorizontal: 20,
-            marginBottom: 10,
+            backgroundColor: isDarkmode ? '#9C86B8' : '#A0BDC6',
+            paddingHorizontal: 50,
+            paddingVertical: 50,
+            borderRadius: 10,
+            alignSelf: 'flex-start',
+            marginHorizontal: '1%',
+            marginTop: 20,
+            margin: 10,
+            minWidth: '20%',
+            textAlign: 'center',
           }}
-          onPress={() => chamadaAPI("LE-1")}
-        >
-          <Text style={{ color: "white", fontWeight: "bold" }}>
-            LE-1
-          </Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          style={{
-            backgroundColor: "#2EC4B6",
-            borderRadius: 20,
-            paddingVertical: 15,
-            paddingHorizontal: 20,
-            marginBottom: 10,
+          onPress={() => {
+            navigation.navigate("Descricao");
           }}
-          onPress={() => chamadaAPI("LE-2")}
         >
-          <Text style={{ color: "white", fontWeight: "bold" }}>
-          LE-2
-          </Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          style={{
-            backgroundColor: "#2EC4B6",
-            borderRadius: 20,
-            paddingVertical: 15,
-            paddingHorizontal: 20,
-            marginBottom: 10,
-          }}
-          onPress={() => chamadaAPI("LE-3")}
-        >
-          <Text style={{ color: "white", fontWeight: "bold" }}>
-          LE-3
-          </Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          style={{
-            backgroundColor: "#2EC4B6",
-            borderRadius: 20,
-            paddingVertical: 15,
-            paddingHorizontal: 20,
-          }}
-          onPress={() => chamadaAPI("LE-4")}
-        >
-          <Text style={{ color: "white", fontWeight: "bold" }}>
-          LE-4
+          <Text style={{flex:1, color: isDarkmode ? '#D9D9D9' : '#464444', fontWeight: "bold" }}>
+            Prof. Dr. Vânia Paula de Almeida Neris
           </Text>
         </TouchableOpacity>
       </View>

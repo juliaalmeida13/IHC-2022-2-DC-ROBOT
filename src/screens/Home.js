@@ -63,7 +63,7 @@ export default function ({ navigation }) {
             
               text = "Toque aqui para iniciar"
               onPress={() => {
-                navigation.navigate("SecondScreen");
+                navigation.navigate("Menu");
               }}
               textStyle = {{color: isDarkmode ? '#D9D9D9' : '#464444'}}
             />

@@ -5,7 +5,8 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Home from "../screens/Home";
 import SecondScreen from "../screens/SecondScreen";
 import Menu from "../screens/Menu";
-import professores from "../screens/Professores";
+import Professores from "../screens/Professores";
+import Descricao from "../screens/Descricao_professores";
 
 const MainStack = createNativeStackNavigator();
 
@@ -19,7 +20,9 @@ const Main = () => {
       <MainStack.Screen name="Home" component={Home} />
       <MainStack.Screen name="SecondScreen" component={SecondScreen} />
       <MainStack.Screen name="Menu" component={Menu} />
-      <MainStack.Screen name="professores" component={professores} />
+      <MainStack.Screen name="Professores" component={Professores} />
+      <MainStack.Screen name="Descricao" component={Descricao} />
+
 
     </MainStack.Navigator>
   );

@@ -109,7 +109,7 @@ export default function ({ navigation }) {
             marginHorizontal: '1%',
             marginTop: 20,
             margin: 10,
-            minWidth: '48%',
+            minWidth: '20%',
             textAlign: 'center',
           }}
           onPress={() => {
