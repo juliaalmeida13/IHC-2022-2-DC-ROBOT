@@ -2,7 +2,7 @@
 Projeto da Disciplina de Interação Humano Computador para o desenvolvimento de uma interface para um robo host do Departamento de Computação - UFSCar. 
 
 # Build do aplicativo
-Para testar o aplicativo android em um tablet ou celular, é só baixar o [RoboApp.apk](link) e instalar.
+Para testar o aplicativo android em um tablet ou celular, é só baixar o [RoboApp.apk](https://github.com/juliaalmeida13/IHC-2022-2-DC-ROBOT/blob/main/APK/RoboAppV2.apk) e instalar.
 
 # Installation
 
