@@ -1,5 +1,7 @@
 import React from "react";
 import { View, TouchableOpacity } from "react-native";
+import { useTranslation } from 'react-i18next';
+import i18n from '../../i18n';
 import {
   Layout,
   TopNav,
@@ -11,6 +13,7 @@ import { Ionicons } from "@expo/vector-icons";
 
 export default function ({ navigation }) {
   const { isDarkmode, setTheme } = useTheme();
+  const { t, i18n } = useTranslation();
 
   const chamadaAPI = async (localizacao) => {
     console.log('Chamando API...');
@@ -20,7 +23,7 @@ export default function ({ navigation }) {
   return (
     <Layout>
       <TopNav
-        middleContent="Mapa do DC"
+        middleContent={t("mapTitle")}
         leftContent={
           <Ionicons
             name="chevron-back"
@@ -29,20 +32,39 @@ export default function ({ navigation }) {
           />
         }
         leftAction={() => navigation.goBack()}
-        rightContent={
+        rightContent={<View style={{ flexDirection: 'row' }}>
+        <TouchableOpacity
+          style={{ marginRight: 16 }}
+          onPress={() => {
+            if (isDarkmode) {
+              setTheme("light");
+            } else {
+              setTheme("dark");
+            }
+          }}
+        >
           <Ionicons
             name={isDarkmode ? "sunny" : "moon"}
             size={20}
             color={isDarkmode ? themeColor.white100 : themeColor.dark}
           />
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => {
+            // Muda o idioma para 'en' ou 'pt'
+            const newLng = i18n.language === 'en' ? 'pt' : 'en';
+            i18n.changeLanguage(newLng);
+          }}
+        >
+          <Ionicons
+            name="language"
+            size={20}
+            color={isDarkmode ? themeColor.white100 : themeColor.dark}
+          />
+        </TouchableOpacity>
+      </View>
         }
-        rightAction={() => {
-          if (isDarkmode) {
-            setTheme("light");
-          } else {
-            setTheme("dark");
-          }
-        }}
+        
       />
 
       <View style={{ flex: 1, alignItems: "center", justifyContent: "flex-start" }}>
@@ -146,7 +168,7 @@ export default function ({ navigation }) {
                   onPress={() => chamadaAPI("Suporte")}
                 >
                   <Text style={{ color: isDarkmode ? '#D9D9D9' : '#464444', fontWeight: "bold" }}>
-                  Suporte
+                  {t("Support")}
                   </Text>
                 </TouchableOpacity>
 
@@ -214,7 +236,7 @@ export default function ({ navigation }) {
                                            onPress={() => chamadaAPI("Auditorio")}
                                          >
                                            <Text style={{ color: isDarkmode ? '#D9D9D9' : '#464444', fontWeight: "bold" }}>
-                                           Auditorio
+                                           {t("Auditorium")}
                                            </Text>
                                          </TouchableOpacity>
 
@@ -226,12 +248,12 @@ export default function ({ navigation }) {
                                                       paddingHorizontal: 20,
                                                       position: 'absolute',
                                                       bottom: 110,
-                                                      right: 630
+                                                      right: 620
                                                     }}
                                                     onPress={() => chamadaAPI("Banheiros")}
                                                   >
                                                     <Text style={{ color: isDarkmode ? '#D9D9D9' : '#464444', fontWeight: "bold" }}>
-                                                    Banheiros
+                                                    {t("Bathrooms")}
                                                     </Text>
                                                   </TouchableOpacity>
 
@@ -243,12 +265,12 @@ export default function ({ navigation }) {
                                      paddingHorizontal: 20,
                                      position: 'absolute',
                                      bottom: 110,
-                                     right: 540
+                                     right: 520
                                    }}
                                    onPress={() => chamadaAPI("Copa")}
                                  >
                                    <Text style={{ color: isDarkmode ? '#D9D9D9' : '#464444', fontWeight: "bold" }}>
-                                   Copa
+                                   {t("Kitchen")}
                                    </Text>
                                  </TouchableOpacity>
 
@@ -260,7 +282,7 @@ export default function ({ navigation }) {
                                     paddingHorizontal: 20,
                                     position: 'absolute',
                                     bottom: 110,
-                                    right: 470
+                                    right: 450,
                                   }}
                                   onPress={() => chamadaAPI("Lig")}
                                 >
@@ -282,7 +304,7 @@ export default function ({ navigation }) {
                                           onPress={() => chamadaAPI("Reunioes")}
                                         >
                                           <Text style={{ color: isDarkmode ? '#D9D9D9' : '#464444', fontWeight: "bold" }}>
-                                          Reunioes
+                                          {t("Reunions")}
                                           </Text>
                                         </TouchableOpacity>
 
@@ -299,7 +321,7 @@ export default function ({ navigation }) {
                                          onPress={() => chamadaAPI("Chefia")}
                                        >
                                          <Text style={{ color: isDarkmode ? '#D9D9D9' : '#464444', fontWeight: "bold" }}>
-                                         Chefia
+                                         {t("Management")}
                                          </Text>
                                        </TouchableOpacity>
 
@@ -316,7 +338,7 @@ export default function ({ navigation }) {
                                          onPress={() => chamadaAPI("Recepcao")}
                                        >
                                          <Text style={{ color: isDarkmode ? '#D9D9D9' : '#464444', fontWeight: "bold" }}>
-                                         Recepcao
+                                         {t("Reception")}
                                          </Text>
                                        </TouchableOpacity>
 
@@ -333,7 +355,7 @@ export default function ({ navigation }) {
                                         onPress={() => chamadaAPI("Graduacao")}
                                       >
                                         <Text style={{ color: isDarkmode ? '#D9D9D9' : '#464444', fontWeight: "bold" }}>
-                                        Graduacao
+                                        {t("Graduation")}
                                         </Text>
                                       </TouchableOpacity>
 

@@ -1,5 +1,7 @@
 import React from "react";
 import { View, TouchableOpacity, Image } from "react-native";
+import { useTranslation } from 'react-i18next';
+import i18n from '../../i18n';
 import {
   Layout,
   TopNav,
@@ -11,6 +13,7 @@ import { Ionicons } from "@expo/vector-icons";
 
 export default function ({ navigation }) {
   const { isDarkmode, setTheme } = useTheme();
+  const { t, i18n } = useTranslation();
 
   const chamadaAPI = async (localizacao) => {
     console.log('Chamando API...');
@@ -20,7 +23,7 @@ export default function ({ navigation }) {
   return (
     <Layout>
       <TopNav
-        middleContent="Grupos de extensão"
+        middleContent={t("extensionGroupsTitle")}
         leftContent={
           <Ionicons
             name="chevron-back"
@@ -30,19 +33,39 @@ export default function ({ navigation }) {
         }
         leftAction={() => navigation.goBack()}
         rightContent={
-          <Ionicons
-            name={isDarkmode ? "sunny" : "moon"}
-            size={20}
-            color={isDarkmode ? themeColor.white100 : themeColor.dark}
-          />
+          <View style={{ flexDirection: 'row' }}>
+            <TouchableOpacity
+              style={{ marginRight: 16 }}
+              onPress={() => {
+                if (isDarkmode) {
+                  setTheme("light");
+                } else {
+                  setTheme("dark");
+                }
+              }}
+            >
+              <Ionicons
+                name={isDarkmode ? "sunny" : "moon"}
+                size={20}
+                color={isDarkmode ? themeColor.white100 : themeColor.dark}
+              />
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => {
+                // Muda o idioma para 'en' ou 'pt'
+                const newLng = i18n.language === 'en' ? 'pt' : 'en';
+                i18n.changeLanguage(newLng);
+              }}
+            >
+              <Ionicons
+                name="language"
+                size={20}
+                color={isDarkmode ? themeColor.white100 : themeColor.dark}
+              />
+            </TouchableOpacity>
+          </View>
         }
-        rightAction={() => {
-          if (isDarkmode) {
-            setTheme("light");
-          } else {
-            setTheme("dark");
-          }
-        }}
+        
       />
 
       <View style={{ alignItems: "center", justifyContent: "center" }}>
@@ -53,7 +76,7 @@ export default function ({ navigation }) {
             fontWeight: "bold",
             textAlign: "center",
             marginBottom: 20,
-            marginTop: -100,
+            marginTop: 0,
             color: isDarkmode ? '#D9D9D9' : '#464444'
           }}>
 
@@ -62,7 +85,7 @@ export default function ({ navigation }) {
         </Text>
       </View>
 
-      <View style={{flexDirection: 1, justifyContent: 'center', // alinhar no centro horizontal
+      <View style={{flexDirection: 'row', justifyContent: 'center', // alinhar no centro horizontal
   alignItems: 'center', }}>
         <TouchableOpacity
           style={{
@@ -79,7 +102,7 @@ export default function ({ navigation }) {
             navigation.navigate("Cati");
           }}
         >
-          <Text style={{flex:1, color: isDarkmode ? '#D9D9D9' : '#464444', fontWeight: "bold", }}>
+          <Text style={{flex:"center", color: isDarkmode ? '#D9D9D9' : '#464444', fontWeight: "bold", }}>
           CATI Jr
           </Text>
 
@@ -97,7 +120,7 @@ export default function ({ navigation }) {
       </View>
 
 
-      <View style={{flexDirection: 1, justifyContent: 'center', // alinhar no centro horizontal
+      <View style={{flexDirection: 'row', justifyContent: 'center', // alinhar no centro horizontal
   alignItems: 'center', }}>
         <TouchableOpacity
           style={{
@@ -117,7 +140,7 @@ export default function ({ navigation }) {
             navigation.navigate("Gamso");
           }}
         >
-          <Text style={{flex:1, color: isDarkmode ? '#D9D9D9' : '#464444', fontWeight: "bold" }}>
+          <Text style={{flex:"center", color: isDarkmode ? '#D9D9D9' : '#464444', fontWeight: "bold" }}>
           GAMSo
           </Text>
 
@@ -136,7 +159,7 @@ export default function ({ navigation }) {
       </View>
 
 
-      <View style={{flexDirection: 1, justifyContent: 'center', // alinhar no centro horizontal
+      <View style={{flexDirection: 'row', justifyContent: 'center', // alinhar no centro horizontal
   alignItems: 'center', }}>
         <TouchableOpacity
           style={{
@@ -156,7 +179,7 @@ export default function ({ navigation }) {
             navigation.navigate("Mu");
           }}
         >
-          <Text style={{flex:1, color: isDarkmode ? '#D9D9D9' : '#464444', fontWeight: "bold" }}>
+          <Text style={{flex:"center", color: isDarkmode ? '#D9D9D9' : '#464444', fontWeight: "bold" }}>
           M@U
           </Text>
 
@@ -174,7 +197,7 @@ export default function ({ navigation }) {
         </TouchableOpacity>
       </View>
 
-      <View style={{flexDirection: 1, justifyContent: 'center', // alinhar no centro horizontal
+      <View style={{flexDirection: 'row', justifyContent: 'center', // alinhar no centro horizontal
   alignItems: 'center', }}>
         <TouchableOpacity
           style={{
@@ -194,7 +217,7 @@ export default function ({ navigation }) {
             navigation.navigate("PETBCC");
           }}
         >
-          <Text style={{flex:1, color: isDarkmode ? '#D9D9D9' : '#464444', fontWeight: "bold" }}>
+          <Text style={{flex:"center", color: isDarkmode ? '#D9D9D9' : '#464444', fontWeight: "bold" }}>
           PET-BCC
           </Text>
           <Image
@@ -211,7 +234,7 @@ export default function ({ navigation }) {
         </TouchableOpacity>
       </View>
 
-      <View style={{flexDirection: 1, justifyContent: 'center', // alinhar no centro horizontal
+      <View style={{flexDirection: 'row', justifyContent: 'center', // alinhar no centro horizontal
   alignItems: 'center', }}>
         <TouchableOpacity
           style={{
@@ -231,7 +254,7 @@ export default function ({ navigation }) {
             navigation.navigate("PETENC");
           }}
         >
-          <Text style={{flex:1, color: isDarkmode ? '#D9D9D9' : '#464444', fontWeight: "bold" }}>
+          <Text style={{flex:"center", color: isDarkmode ? '#D9D9D9' : '#464444', fontWeight: "bold" }}>
           PET-ENC
           </Text>
 
@@ -249,7 +272,7 @@ export default function ({ navigation }) {
         </TouchableOpacity>
       </View>
 
-      <View style={{flexDirection: 1, justifyContent: 'center', // alinhar no centro horizontal
+      <View style={{flexDirection: 'row', justifyContent: 'center', // alinhar no centro horizontal
   alignItems: 'center', }}>
         <TouchableOpacity
           style={{
@@ -269,7 +292,7 @@ export default function ({ navigation }) {
             navigation.navigate("PyLadies");
           }}
         >
-          <Text style={{flex:1, color: isDarkmode ? '#D9D9D9' : '#464444', fontWeight: "bold" }}>
+          <Text style={{flex:"center", color: isDarkmode ? '#D9D9D9' : '#464444', fontWeight: "bold" }}>
           PyLadies
           </Text>
 
@@ -287,7 +310,7 @@ export default function ({ navigation }) {
         </TouchableOpacity>
       </View>
 
-      <View style={{flexDirection: 1, justifyContent: 'center', // alinhar no centro horizontal
+      <View style={{flexDirection: 'row', justifyContent: 'center', // alinhar no centro horizontal
   alignItems: 'center', }}>
         <TouchableOpacity
           style={{
@@ -307,7 +330,7 @@ export default function ({ navigation }) {
             navigation.navigate("SECOMP");
           }}
         >
-          <Text style={{flex:1, color: isDarkmode ? '#D9D9D9' : '#464444', fontWeight: "bold" }}>
+          <Text style={{flex:"center", color: isDarkmode ? '#D9D9D9' : '#464444', fontWeight: "bold" }}>
           SECOMP
           </Text>
 

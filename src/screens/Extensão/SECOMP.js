@@ -1,5 +1,6 @@
 import React from "react";
 import { View, TouchableOpacity } from "react-native";
+import { useTranslation } from 'react-i18next';
 import {
   Layout,
   TopNav,
@@ -11,6 +12,7 @@ import { Ionicons } from "@expo/vector-icons";
 
 export default function ({ navigation }) {
   const { isDarkmode, setTheme } = useTheme();
+  const { t, i18n } = useTranslation();
 
   const chamadaAPI = async (localizacao) => {
     console.log('Chamando API...');
@@ -30,19 +32,39 @@ export default function ({ navigation }) {
         }
         leftAction={() => navigation.goBack()}
         rightContent={
-          <Ionicons
-            name={isDarkmode ? "sunny" : "moon"}
-            size={20}
-            color={isDarkmode ? themeColor.white100 : themeColor.dark}
-          />
+          <View style={{ flexDirection: 'row' }}>
+            <TouchableOpacity
+              style={{ marginRight: 16 }}
+              onPress={() => {
+                if (isDarkmode) {
+                  setTheme("light");
+                } else {
+                  setTheme("dark");
+                }
+              }}
+            >
+              <Ionicons
+                name={isDarkmode ? "sunny" : "moon"}
+                size={20}
+                color={isDarkmode ? themeColor.white100 : themeColor.dark}
+              />
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => {
+                // Muda o idioma para 'en' ou 'pt'
+                const newLng = i18n.language === 'en' ? 'pt' : 'en';
+                i18n.changeLanguage(newLng);
+              }}
+            >
+              <Ionicons
+                name="language"
+                size={20}
+                color={isDarkmode ? themeColor.white100 : themeColor.dark}
+              />
+            </TouchableOpacity>
+          </View>
         }
-        rightAction={() => {
-          if (isDarkmode) {
-            setTheme("light");
-          } else {
-            setTheme("dark");
-          }
-        }}
+        
       />
 
       <View style={{ alignItems: "center", justifyContent: "center" }}>
@@ -74,8 +96,7 @@ export default function ({ navigation }) {
           }}
         >
           <Text style={{ color: '#464444', fontWeight: "bold", fontSize: 18 }}>
-          A Semana Acadêmica da Computação da Universidade Federal de São Carlos (SECOMP UFSCar) surgiu da necessidade de trazer assuntos que fossem de interesse tanto da comunidade acadêmica quanto de entusiastas. A cada ano, alunos da graduação dos cursos do Departamento de Computação se mobilizam para realizar este grande evento, no qual pessoas de diferentes áreas relacionadas são convidadas a apresentar, discutir e debater experiências e novidades que trarão informações, conhecimentos e inovação aos participantes. Atualmente, em nossa décima edição, a SECOMP trabalha para que os assuntos sejam os mais atuais possíveis e que sejam transmitidos da maneira mais dinâmica, tentando aproximar o participante de áreas que vão da academia até o mercado de trabalho através de minicursos, workshops, palestras técnicas, empresariais, mesas redondas, feiras de recrutamento, desafio de programadores e muitos outros conteúdos que foram pensados ao longo de nossas edições, em busca de um evento cada vez melhor!
-
+          {t("TSecomp")}
         
           </Text>
         </TouchableOpacity>

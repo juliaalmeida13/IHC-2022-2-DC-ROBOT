@@ -1,5 +1,6 @@
 import React from "react";
 import { View, TouchableOpacity } from "react-native";
+import { useTranslation } from 'react-i18next';
 import {
   Layout,
   TopNav,
@@ -11,6 +12,7 @@ import { Ionicons } from "@expo/vector-icons";
 
 export default function ({ navigation }) {
   const { isDarkmode, setTheme } = useTheme();
+  const { t, i18n } = useTranslation();
 
   const chamadaAPI = async (localizacao) => {
     console.log('Chamando API...');
@@ -30,19 +32,39 @@ export default function ({ navigation }) {
         }
         leftAction={() => navigation.goBack()}
         rightContent={
-          <Ionicons
-            name={isDarkmode ? "sunny" : "moon"}
-            size={20}
-            color={isDarkmode ? themeColor.white100 : themeColor.dark}
-          />
+          <View style={{ flexDirection: 'row' }}>
+            <TouchableOpacity
+              style={{ marginRight: 16 }}
+              onPress={() => {
+                if (isDarkmode) {
+                  setTheme("light");
+                } else {
+                  setTheme("dark");
+                }
+              }}
+            >
+              <Ionicons
+                name={isDarkmode ? "sunny" : "moon"}
+                size={20}
+                color={isDarkmode ? themeColor.white100 : themeColor.dark}
+              />
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => {
+                // Muda o idioma para 'en' ou 'pt'
+                const newLng = i18n.language === 'en' ? 'pt' : 'en';
+                i18n.changeLanguage(newLng);
+              }}
+            >
+              <Ionicons
+                name="language"
+                size={20}
+                color={isDarkmode ? themeColor.white100 : themeColor.dark}
+              />
+            </TouchableOpacity>
+          </View>
         }
-        rightAction={() => {
-          if (isDarkmode) {
-            setTheme("light");
-          } else {
-            setTheme("dark");
-          }
-        }}
+        
       />
 
       <View style={{ alignItems: "center", justifyContent: "center" }}>
@@ -74,8 +96,7 @@ export default function ({ navigation }) {
           }}
         >
           <Text style={{ color: '#464444', fontWeight: "bold", fontSize: 18 }}>
-          O grupo PET do curso de Bacharelado em Ciência da Computação (PET-BCC) da Universidade Federal de São Carlos (UFSCar), campus São Carlos, iniciou suas atividades em outubro de 2009 ao ser contemplado no lote 2 do edital nº 05. Uma particularidade desse edital é que a chamada foi para grupos temáticos, isto é, além de estarem vinculados a um curso de graduação, também deveriam ter um tema para nortear suas atividades e projetos. O tema do PET-BCC é desenvolvimento de software.
-
+          {t("TPETBCC")}
         
           </Text>
         </TouchableOpacity>

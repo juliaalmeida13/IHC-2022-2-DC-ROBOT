@@ -1,5 +1,7 @@
 import React from "react";
 import { View, TouchableOpacity } from "react-native";
+import { useTranslation } from 'react-i18next';
+
 import {
   Layout,
   TopNav,
@@ -11,6 +13,7 @@ import { Ionicons } from "@expo/vector-icons";
 
 export default function ({ navigation }) {
   const { isDarkmode, setTheme } = useTheme();
+  const { t, i18n } = useTranslation();
 
   const chamadaAPI = async (localizacao) => {
     console.log('Chamando API...');
@@ -30,19 +33,39 @@ export default function ({ navigation }) {
         }
         leftAction={() => navigation.goBack()}
         rightContent={
-          <Ionicons
-            name={isDarkmode ? "sunny" : "moon"}
-            size={20}
-            color={isDarkmode ? themeColor.white100 : themeColor.dark}
-          />
+          <View style={{ flexDirection: 'row' }}>
+            <TouchableOpacity
+              style={{ marginRight: 16 }}
+              onPress={() => {
+                if (isDarkmode) {
+                  setTheme("light");
+                } else {
+                  setTheme("dark");
+                }
+              }}
+            >
+              <Ionicons
+                name={isDarkmode ? "sunny" : "moon"}
+                size={20}
+                color={isDarkmode ? themeColor.white100 : themeColor.dark}
+              />
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => {
+                // Muda o idioma para 'en' ou 'pt'
+                const newLng = i18n.language === 'en' ? 'pt' : 'en';
+                i18n.changeLanguage(newLng);
+              }}
+            >
+              <Ionicons
+                name="language"
+                size={20}
+                color={isDarkmode ? themeColor.white100 : themeColor.dark}
+              />
+            </TouchableOpacity>
+          </View>
         }
-        rightAction={() => {
-          if (isDarkmode) {
-            setTheme("light");
-          } else {
-            setTheme("dark");
-          }
-        }}
+        
       />
 
       <View style={{ alignItems: "center", justifyContent: "center" }}>
@@ -74,10 +97,9 @@ export default function ({ navigation }) {
           }}
         >
           <Text style={{ color: '#464444', fontWeight: "bold", fontSize: 18 }}>
-          A CATI Jr é a empresa júnior dos cursos de Engenharia e Ciência da Computação da UFSCar. Focamos em projetos com alto impacto na sociedade, para clientes reais, dando a experiência de mercado de trabalho para nossos membros. Nosso portfólio consiste em sistemas, aplicativos, sites e oferecemos consultoria na área da computação. Atualmente já desenvolvemos sistemas para a Genau, escola de idiomas em São Carlos, SonicWall, empresa internacional, e para o Hotel Resort Santa Clara. Além de aplicativos para a Rádio UFSCar e consultoria para o cursinho popular da UFSCar Lagoa do Sino. Também desenvolvemos produtos próprios como um sistema de compra/venda de eventos e gerenciamento de atléticas.
-
+          {t("TCati")}
         
-        Visitar Site:
+        
           </Text>
         </TouchableOpacity>
       </View>

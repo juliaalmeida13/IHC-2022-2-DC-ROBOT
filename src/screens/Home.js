@@ -1,5 +1,7 @@
 import React from "react";
-import {StyleSheet, View, Linking, Image} from "react-native";
+import {StyleSheet, View, Linking, Image, TouchableOpacity} from "react-native";
+import { useTranslation } from 'react-i18next';
+import i18n from '../../i18n';
 
 import {
   Layout,
@@ -16,25 +18,46 @@ import minhaImagem from "../../assets/image-light-mode.png";
 import minhaImagemEscura from "../../assets/image-dark-mode.png";
 
 export default function ({ navigation }) {
+  const { t, i18n } = useTranslation();
   const { isDarkmode, setTheme } = useTheme();
   return (
     <Layout>
       <TopNav
-        middleContent="Robô do DC"
+        middleContent={t("DcRobot")}
         rightContent={
-          <Ionicons
-            name={isDarkmode ? "sunny" : "moon"}
-            size={20}
-            color={isDarkmode ? themeColor.white100 : themeColor.dark}
-          />
-        }
-        rightAction={() => {
+          <View style={{ flexDirection: 'row' }}>
+      <TouchableOpacity
+        style={{ marginRight: 16 }}
+        onPress={() => {
           if (isDarkmode) {
             setTheme("light");
           } else {
             setTheme("dark");
           }
         }}
+      >
+        <Ionicons
+          name={isDarkmode ? "sunny" : "moon"}
+          size={20}
+          color={isDarkmode ? themeColor.white100 : themeColor.dark}
+        />
+      </TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => {
+          // Muda o idioma para 'en' ou 'pt'
+          const newLng = i18n.language === 'en' ? 'pt' : 'en';
+          i18n.changeLanguage(newLng);
+        }}
+      >
+        <Ionicons
+          name="language"
+          size={20}
+          color={isDarkmode ? themeColor.white100 : themeColor.dark}
+        />
+      </TouchableOpacity>
+    </View>
+        }
+        
       />
 
       <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
@@ -45,11 +68,11 @@ export default function ({ navigation }) {
             fontWeight: "bold",
             textAlign: "center",
             marginTop: -100,
-            marginBottom: 50,
+            marginBottom: 15,
             color: isDarkmode ? '#D9D9D9' : '#464444'
           }}
         >
-          Bem vinde ao Departamento de Computação da UFSCar!
+          {t("welcomeMessage")}
         </Text> 
         <Image 
           source={isDarkmode ? minhaImagemEscura : minhaImagem} style={{ width: 950, height: 420}} />
@@ -61,7 +84,7 @@ export default function ({ navigation }) {
               style = {styles.buttonLight}
               color = {isDarkmode ? '#9C86B8' : '#A0BDC6'}
             
-              text = "Toque aqui para iniciar"
+              text = {t("ButtonBegin")}
               onPress={() => {
                 navigation.navigate("Menu");
               }}

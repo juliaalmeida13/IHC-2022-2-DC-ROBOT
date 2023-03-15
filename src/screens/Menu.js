@@ -8,10 +8,13 @@ import {
   useTheme,
 } from "react-native-rapi-ui";
 import { Ionicons } from "@expo/vector-icons";
+import { useTranslation } from 'react-i18next';
+import i18n from '../../i18n';
 //import mapa from "../../assets/mapa.png";
 
 
 export default function ({ navigation }) {
+  const { t, i18n } = useTranslation();
   const { isDarkmode, setTheme } = useTheme();
   
 
@@ -19,30 +22,50 @@ export default function ({ navigation }) {
   return (
     <Layout>
      <TopNav
-        middleContent="Mapa do DC"
-        leftContent={
-          <Ionicons
-            name="chevron-back"
-            size={20}
-            color={isDarkmode ? themeColor.white100 : themeColor.dark}
-          />
-        }
-        leftAction={() => navigation.goBack()}
-        rightContent={
-          <Ionicons
-            name={isDarkmode ? "sunny" : "moon"}
-            size={20}
-            color={isDarkmode ? themeColor.white100 : themeColor.dark}
-          />
-        }
-        rightAction={() => {
+  middleContent="Menu"
+  leftContent={
+    <Ionicons
+      name="chevron-back"
+      size={20}
+      color={isDarkmode ? themeColor.white100 : themeColor.dark}
+    />
+  }
+  leftAction={() => navigation.goBack()}
+  
+  rightContent={
+    <View style={{ flexDirection: 'row' }}>
+      <TouchableOpacity
+        style={{ marginRight: 16 }}
+        onPress={() => {
           if (isDarkmode) {
             setTheme("light");
           } else {
             setTheme("dark");
           }
         }}
-      />
+      >
+        <Ionicons
+          name={isDarkmode ? "sunny" : "moon"}
+          size={20}
+          color={isDarkmode ? themeColor.white100 : themeColor.dark}
+        />
+      </TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => {
+          // Muda o idioma para 'en' ou 'pt'
+          const newLng = i18n.language === 'en' ? 'pt' : 'en';
+          i18n.changeLanguage(newLng);
+        }}
+      >
+        <Ionicons
+          name="language"
+          size={20}
+          color={isDarkmode ? themeColor.white100 : themeColor.dark}
+        />
+      </TouchableOpacity>
+    </View>
+  }
+/>
 
   <View style={{alignItems: "center", justifyContent: "center"}}>
         <Text 
@@ -56,7 +79,7 @@ export default function ({ navigation }) {
             color: isDarkmode ? '#D9D9D9' : '#464444'
           }}
         > 
-          Bem vinde ao Departamento de Computação da UFSCar!
+          {t("welcomeMessage")}
         </Text>
       </View>
 
@@ -72,7 +95,7 @@ export default function ({ navigation }) {
             color: isDarkmode ? '#D9D9D9' : '#464444'
           }}
         > 
-          Selecione a opção desejada
+          {t("selectOption")}
         </Text>
       </View>
 
@@ -96,7 +119,7 @@ export default function ({ navigation }) {
           }}
         >
           <Text style={{ color: isDarkmode ? '#D9D9D9' : '#464444', fontWeight: "bold" }}>
-            Mapa do DC
+          {t("mapTitle")}
           </Text>
         </TouchableOpacity>
 
@@ -119,7 +142,7 @@ export default function ({ navigation }) {
           }}
         >
           <Text style={{ color: isDarkmode ? '#D9D9D9' : '#464444', fontWeight: "bold" }}>
-          Grupos de Extensão
+          {t("extensionGroupsTitle")}
           </Text>
         </TouchableOpacity>
       </View>

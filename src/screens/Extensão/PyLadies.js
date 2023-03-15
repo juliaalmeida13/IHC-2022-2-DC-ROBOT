@@ -1,5 +1,6 @@
 import React from "react";
 import { View, TouchableOpacity } from "react-native";
+import { useTranslation } from 'react-i18next';
 import {
   Layout,
   TopNav,
@@ -11,6 +12,7 @@ import { Ionicons } from "@expo/vector-icons";
 
 export default function ({ navigation }) {
   const { isDarkmode, setTheme } = useTheme();
+  const { t, i18n } = useTranslation();
 
   const chamadaAPI = async (localizacao) => {
     console.log('Chamando API...');
@@ -30,19 +32,39 @@ export default function ({ navigation }) {
         }
         leftAction={() => navigation.goBack()}
         rightContent={
-          <Ionicons
-            name={isDarkmode ? "sunny" : "moon"}
-            size={20}
-            color={isDarkmode ? themeColor.white100 : themeColor.dark}
-          />
+          <View style={{ flexDirection: 'row' }}>
+            <TouchableOpacity
+              style={{ marginRight: 16 }}
+              onPress={() => {
+                if (isDarkmode) {
+                  setTheme("light");
+                } else {
+                  setTheme("dark");
+                }
+              }}
+            >
+              <Ionicons
+                name={isDarkmode ? "sunny" : "moon"}
+                size={20}
+                color={isDarkmode ? themeColor.white100 : themeColor.dark}
+              />
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => {
+                // Muda o idioma para 'en' ou 'pt'
+                const newLng = i18n.language === 'en' ? 'pt' : 'en';
+                i18n.changeLanguage(newLng);
+              }}
+            >
+              <Ionicons
+                name="language"
+                size={20}
+                color={isDarkmode ? themeColor.white100 : themeColor.dark}
+              />
+            </TouchableOpacity>
+          </View>
         }
-        rightAction={() => {
-          if (isDarkmode) {
-            setTheme("light");
-          } else {
-            setTheme("dark");
-          }
-        }}
+        
       />
 
       <View style={{ alignItems: "center", justifyContent: "center" }}>
@@ -74,8 +96,7 @@ export default function ({ navigation }) {
           }}
         >
           <Text style={{ color: '#464444', fontWeight: "bold", fontSize: 18 }}>
-          O grupo PyLadies São Carlos foi oficializado no dia 15 de Novembro de 2014 por alunas da computação da UFSCar. Atualmente, é formado por cerca de 60 membros das mais diversas áreas do conhecimento (humanas, biológicas e exatas). É composto por maioria feminina, mas também há uma parcela pequena de membros homens, os quais entendem as causas firmadas e se comprometem a ajudar. A missão do grupo é incentivar a entrada de mais mulheres às áreas de programação, além de manter uma comunidade ativa e diversificada do Python. Para isso, o PyLadies São Carlos atua em escolas ensinando programação de maneira lúdica às meninas do ensino médio, para incentivá-las a entrarem nessa área e quebrar estereótipos relacionados à racionalidade, além de oferecer minicursos e palestras dos mais variados assuntos para a população no geral e participando em eventos de tecnologia e oficinas.
-
+          {t("TPyLadies")}
 
         
           </Text>
