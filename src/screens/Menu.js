@@ -1,5 +1,5 @@
 import React from "react";
-import { View, TouchableOpacity, StyleSheet} from "react-native";
+import { View, TouchableOpacity, StyleSheet, createContext, useContext, useState} from "react-native";
 import {
   Layout,
   TopNav,
@@ -10,14 +10,16 @@ import {
 import { Ionicons } from "@expo/vector-icons";
 //import mapa from "../../assets/mapa.png";
 
+
 export default function ({ navigation }) {
   const { isDarkmode, setTheme } = useTheme();
+  
 
 
   return (
     <Layout>
-      <TopNav
-        middleContent="Menu"
+     <TopNav
+        middleContent="Mapa do DC"
         leftContent={
           <Ionicons
             name="chevron-back"
@@ -113,11 +115,11 @@ export default function ({ navigation }) {
             textAlign: 'center',
           }}
           onPress={() => {
-            navigation.navigate("Professores");
+            navigation.navigate("Grupos");
           }}
         >
           <Text style={{ color: isDarkmode ? '#D9D9D9' : '#464444', fontWeight: "bold" }}>
-          Professores
+          Grupos de Extensão
           </Text>
         </TouchableOpacity>
       </View>
